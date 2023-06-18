@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import SidebarHeader from "@/components/sidebar/Sidbar";
 import Product from "@/components/product/singleProducts";
 
-const index = () => {
+const Index = () => {
   const router = useRouter();
 
   return (
@@ -12,4 +12,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

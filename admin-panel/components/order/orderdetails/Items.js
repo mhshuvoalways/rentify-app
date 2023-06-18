@@ -18,7 +18,7 @@ const OrderDetails = ({ findOrders }) => {
               <td className="text-left px-3 py-6">${product.price}</td>
               <td className="text-left px-3 py-6 w-2/12">
                 {product.dates.map(date => (
-                  <p className="text-green-600">{date}</p>
+                  <p className="text-green-600" key={date}>{date}</p>
                 ))}
               </td>
             </tr>

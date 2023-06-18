@@ -6,7 +6,7 @@ import { getCategoires } from "@/store/actions/categoryAction";
 import { getProducts } from "@/store/actions/productAction";
 import { getAllSubProducts } from "@/store/actions/subProductAction";
 
-const index = () => {
+const Index = () => {
   const dispatch = useDispatch();
 
   const userReducer = useSelector((store) => store.userReducer);
@@ -84,4 +84,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

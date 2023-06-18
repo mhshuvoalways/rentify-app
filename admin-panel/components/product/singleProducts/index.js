@@ -53,7 +53,7 @@ const Index = ({ productId }) => {
 
   useEffect(() => {
     dispatch(getProducts(productId));
-  }, [dispatch]);
+  }, [dispatch, productId]);
 
   return (
     <div>

@@ -16,7 +16,7 @@ const SidebarHeader = ({ children }) => {
 
   useEffect(() => {
     dispatch(isAuthenticate(router));
-  }, [dispatch]);
+  }, [dispatch, router]);
 
   return (
     <div>

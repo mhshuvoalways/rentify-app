@@ -109,7 +109,7 @@ const Register = () => {
             <div className="my-1">
               <ReCAPTCHA
                 value={state.recaptch}
-                sitekey="6LcOKZAlAAAAABb5dD5soPssIEKxI1u-d_M-qQ3q"
+                sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
                 onChange={onChangeCaptcha}
               />
             </div>
