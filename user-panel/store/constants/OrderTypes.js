@@ -1,0 +1,8 @@
+export const CREATE_ORDER = "CREATE_ORDER";
+export const CREATE_ORDER_ERROR = "CREATE_ORDER_ERROR";
+
+export const GET_ORDER = "GET_ORDER";
+export const GET_ORDER_ERROR = "GET_ORDER_ERROR";
+
+export const GET_MY_ORDER = "GET_MY_ORDER";
+export const GET_MY_ORDER_ERROR = "GET_MY_ORDER_ERROR";
