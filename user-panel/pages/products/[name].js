@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Products from "@/components/product";
-import axios from "axios";
+import axios from "@/utils/axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -11,7 +11,7 @@ const Product = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/product/getproducts")
+      .get("/product/getproducts")
       .then((response) => {
         setProducts(response.data);
       })

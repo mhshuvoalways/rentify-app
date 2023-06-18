@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import Context from "../context/Context";
 import { Provider } from "react-redux";
 import store from "@/store";
 import setAuthToken from "@/utils/setAuthToken";
@@ -28,10 +27,8 @@ export default function App({ Component, pageProps }) {
         className={`bg-gray-50 text-indigo-900 overflow-x-hidden ${inter.className}`}
       >
         <Provider store={store}>
-          <Context>
-            <Tostify />
-            <Component {...pageProps} />
-          </Context>
+          <Tostify />
+          <Component {...pageProps} />
         </Provider>
       </div>
     </>
