@@ -7,6 +7,7 @@ import {
   deleteBookProduct,
   updateBookProduct,
 } from "@/store/actions/bookProduct";
+import { useRouter } from "next/router";
 
 const Index = () => {
   const [address, setAddress] = useState({
@@ -19,6 +20,8 @@ const Index = () => {
   const [total, setTotal] = useState(0);
   const [allProducts, setAllProducts] = useState([]);
 
+  const router = useRouter();
+
   const dispatch = useDispatch();
 
   const bookReducer = useSelector((store) => store.bookReducer);
@@ -30,7 +33,7 @@ const Index = () => {
       totalPrice: total,
       products: allProducts,
     };
-    dispatch(createOrder(obj));
+    dispatch(createOrder(obj, router));
   };
 
   const onChangeHandler = (event) => {

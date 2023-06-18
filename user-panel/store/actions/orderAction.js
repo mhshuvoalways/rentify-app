@@ -3,7 +3,7 @@ import axios from "../../utils/axios";
 import alertAction from "./alertAction";
 import enableBtn from "./enableBtnAction";
 
-export const createOrder = (product) => (dispatch) => {
+export const createOrder = (product, router) => (dispatch) => {
   dispatch(enableBtn(false));
   axios
     .post("/order/addorder", product)
@@ -14,6 +14,7 @@ export const createOrder = (product) => (dispatch) => {
           order: response.data,
         },
       });
+      router.push("/myaccount");
       dispatch(alertAction("Ordered successfully!"));
       dispatch(enableBtn(true));
     })
@@ -49,7 +50,6 @@ export const getOrders = () => (dispatch) => {
       });
     });
 };
-
 
 export const getMyOrders = () => (dispatch) => {
   axios
