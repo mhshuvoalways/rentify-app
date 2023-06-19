@@ -58,8 +58,8 @@ const ProductCard = ({
     dispatch(getOrders());
   }, [dispatch]);
 
-  const increaseHandler = (stock) => {
-    if (quantity >= stock) {
+  const increaseHandler = () => {
+    if (quantity >= maxIncrement) {
       return;
     }
     setQuantity((q) => q + 1);
@@ -75,18 +75,18 @@ const ProductCard = ({
   const deleteDate = (id) => {
     const temp = [...selectedDates];
     const filtered = temp.filter((item) => item.id !== id);
-    const findItem = temp.find((item) => item.id === id);
     setSelectedDates(filtered);
-    setMaxIncrement((prev) => prev - findItem.totalQuantity);
-    setQuantity((prev) => prev - findItem.totalQuantity);
   };
 
   useEffect(() => {
-    let total = 0;
+    const total = [];
     selectedDates.forEach((date) => {
-      total += date.totalQuantity;
+      total.push(date.totalQuantity);
     });
-    setMaxIncrement(total);
+    setMaxIncrement(Math.min(...total));
+    if (quantity > Math.min(...total)) {
+      setQuantity(Math.min(...total));
+    }
   }, [selectedDates]);
 
   return (
@@ -128,10 +128,7 @@ const ProductCard = ({
               -
             </button>
             <p>{`${quantity}`}</p>
-            <button
-              onClick={() => increaseHandler(maxIncrement)}
-              className="border px-2"
-            >
+            <button onClick={increaseHandler} className="border px-2">
               +
             </button>
           </div>

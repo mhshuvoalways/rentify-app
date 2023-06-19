@@ -11,7 +11,7 @@ const OrderDetails = ({ myOrders }) => {
           </tr>
         </thead>
         <tbody>
-          {myOrders.map((order) =>
+          {[...myOrders].reverse().map((order) =>
             order.products.map((product) => (
               <tr className="border" key={product._id}>
                 <td className="text-left px-3 py-6">{product.title}</td>
