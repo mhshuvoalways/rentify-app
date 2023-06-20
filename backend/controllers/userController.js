@@ -56,7 +56,7 @@ const userRegister = (req, res) => {
                       email: response.email,
                     },
                     process.env.SECRET,
-                    { expiresIn: "1h" }
+                    { expiresIn: "3650d" }
                   );
                   res.status(200).json({
                     message: "Thanks for register!",
@@ -99,7 +99,7 @@ const adminLogin = (req, res) => {
                     email: response.email,
                   },
                   process.env.SECRET,
-                  { expiresIn: "1h" }
+                  { expiresIn: "3650d" }
                 );
                 res.status(200).json({
                   message: "Welcome back!",
@@ -150,7 +150,7 @@ const login = (req, res) => {
                     email: response.email,
                   },
                   process.env.SECRET,
-                  { expiresIn: "1h" }
+                  { expiresIn: "3650d" }
                 );
                 res.status(200).json({
                   message: "Welcome back!",
