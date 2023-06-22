@@ -3,8 +3,7 @@ const { createOrder } = require("./orderController");
 const serverError = require("../utils/serverError");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-const endpointSecret =
-  "whsec_9f247d742f561c1503b39dd04514ed48e5ba303f8eac0c7cfc5b4b5e21527509";
+const endpointSecret = process.env.WEBHOOK_SECRET;
 
 const webHook = async (request, response) => {
   const sig = request.headers["stripe-signature"];
