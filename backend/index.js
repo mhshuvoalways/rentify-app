@@ -16,7 +16,13 @@ const stripeRouter = require("./routers/stripeRouter");
 const app = express();
 app.use(
   cors({
-    origin: "https://rentify-app.netlify.app",
+    origin: [
+      "https://rentify-app.netlify.app",
+      "https://rentify-dashboard-app.netlify.app, ",
+      "https://checkout.stripe.com",
+      "http://localhost:3000",
+      "http://localhost:3001",
+    ],
   })
 );
 app.use(morgan("dev"));
