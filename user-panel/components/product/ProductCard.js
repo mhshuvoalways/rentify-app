@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import Calendar from "../clock/Calendar";
 import SelectedDates from "../clock/SelectDates";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,6 +14,7 @@ const ProductCard = ({
   image,
   title,
   price,
+  category,
   description,
   stock,
 }) => {
@@ -24,6 +26,8 @@ const ProductCard = ({
   const userReducer = useSelector((store) => store.userReducer);
   const btnReducer = useSelector((store) => store.btnReducer);
   const bookReducer = useSelector((store) => store.bookReducer);
+  
+  const router = useRouter()
 
   let findProductDates = 0;
   let findProductId = false;
@@ -46,7 +50,7 @@ const ProductCard = ({
         dates: selectedDates.length
           ? selectedDates.map((el) => moment(el.date).format("YYYY-MM-DD"))
           : null,
-      })
+      }, router)
     );
   };
 
@@ -111,6 +115,7 @@ const ProductCard = ({
               setSelectedDates={setSelectedDates}
               setSelectedDate={setSelectedDate}
               selectedDate={selectedDate}
+              category={category}
             />
           </div>
           {findProductId && (

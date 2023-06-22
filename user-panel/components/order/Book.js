@@ -8,6 +8,8 @@ const Book = ({
   decreaseHandler,
   deleteOrderProdcut,
   userReducer,
+  btnReducer,
+  cashOrderHandler,
 }) => {
   return (
     <div className="w-full md:w-5/12">
@@ -77,21 +79,50 @@ const Book = ({
         </div>
       </div>
       {userReducer.isAuthenticate ? (
-        <button
-          className="bg-indigo-900 text-white py-3 w-full hover:bg-indigo-800 mt-10 rounded-full"
-          onClick={createOrderHandler}
-        >
-          CONFIRM AND PAY
-        </button>
+        btnReducer ? (
+          <>
+            <button
+              className="bg-indigo-900 text-white py-3 w-full hover:bg-indigo-800 mt-10 rounded-full"
+              onClick={createOrderHandler}
+            >
+              CONFIRM AND PAY
+            </button>
+            <button
+              className="bg-indigo-900 text-white py-3 w-full hover:bg-indigo-800 mt-5 rounded-full"
+              onClick={cashOrderHandler}
+            >
+              CASH
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              className="bg-gray-600 cursor-not-allowed opacity-50 text-white py-3 w-full mt-10 rounded-full"
+              onClick={createOrderHandler}
+            >
+              CONFIRM AND PAY
+            </button>
+            <button
+              className="bg-gray-600 cursor-not-allowed opacity-50 text-white py-3 w-full mt-10 rounded-full"
+              onClick={createOrderHandler}
+            >
+              CASH
+            </button>
+          </>
+        )
       ) : (
-        <Link href="/login">
-          <button
-            className="bg-indigo-900 text-white py-3 w-full hover:bg-indigo-800 mt-10 rounded-full"
-            onClick={createOrderHandler}
-          >
-            CONFIRM AND PAY
-          </button>
-        </Link>
+        <>
+          <Link href="/login">
+            <button className="bg-indigo-900 text-white py-3 w-full hover:bg-indigo-800 mt-10 rounded-full">
+              CONFIRM AND PAY
+            </button>
+          </Link>
+          <Link href="/login">
+            <button className="bg-indigo-900 text-white py-3 w-full hover:bg-indigo-800 mt-5 rounded-full">
+              CASH
+            </button>
+          </Link>
+        </>
       )}
     </div>
   );

@@ -1,2 +1,9 @@
 export const GET_ORDER = "GET_ORDER";
 export const GET_ORDER_ERROR = "GET_ORDER_ERROR";
+
+export const UPDATE_ORDER = "UPDATE_ORDER";
+export const UPDATE_ORDER_ERROR = "UPDATE_ORDER_ERROR";
+
+
+export const DELETE_ORDER = "DELETE_ORDER";
+export const DELETE_ORDER_ERROR = "DELETE_ORDER_ERROR";

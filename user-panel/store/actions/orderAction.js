@@ -1,15 +1,15 @@
-import * as Types from "../constants/OrderTypes";
 import axios from "../../utils/axios";
+import * as Types from "../constants/OrderTypes";
 import alertAction from "./alertAction";
 import enableBtn from "./enableBtnAction";
 
-export const createOrder = (product, router) => (dispatch) => {
+export const cashInOrder = (product, router) => (dispatch) => {
   dispatch(enableBtn(false));
   axios
-    .post("/order/addorder", product)
+    .post("/order/orderincash", product)
     .then((response) => {
       dispatch({
-        type: Types.CREATE_ORDER,
+        type: Types.CASH_CREATE_ORDER,
         payload: {
           order: response.data,
         },
@@ -20,11 +20,24 @@ export const createOrder = (product, router) => (dispatch) => {
     })
     .catch((err) => {
       dispatch({
-        type: Types.CREATE_ORDER_ERROR,
+        type: Types.CASH_CREATE_ORDER_ERROR,
         payload: {
           error: err.response?.data,
         },
       });
+      dispatch(enableBtn(true));
+      dispatch(alertAction(err.response?.data));
+    });
+};
+
+export const createOrder = (product, router) => (dispatch) => {
+  dispatch(enableBtn(false));
+  axios
+    .post("/order/addorder", product)
+    .then((response) => {
+      router.push(response.data.sessionUrl);
+    })
+    .catch((err) => {
       dispatch(enableBtn(true));
       dispatch(alertAction(err.response?.data));
     });
@@ -40,6 +53,7 @@ export const getOrders = () => (dispatch) => {
           order: response.data,
         },
       });
+      dispatch(enableBtn(true));
     })
     .catch((err) => {
       dispatch({
@@ -48,6 +62,7 @@ export const getOrders = () => (dispatch) => {
           error: err.response?.data,
         },
       });
+      dispatch(enableBtn(true));
     });
 };
 

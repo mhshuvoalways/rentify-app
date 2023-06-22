@@ -1,4 +1,5 @@
-const router = require("express").Router();
+const express = require("express");
+const router = express.Router();
 const {
   userRegister,
   login,
@@ -8,6 +9,8 @@ const {
   deleteUser,
 } = require("../controllers/userController");
 const authenticate = require("../middlewares/authenticate");
+
+router.use(express.json());
 
 router.post("/register", userRegister);
 router.post("/adminlogin", adminLogin);

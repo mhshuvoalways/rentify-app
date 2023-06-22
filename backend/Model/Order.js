@@ -17,7 +17,6 @@ const orderSchema = new Schema(
     paymentMethod: {
       cash: String,
       tranId: String,
-      StatusCode: String,
     },
     products: [
       {

@@ -109,9 +109,9 @@ export const getMyAccount = () => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: Types.GET_MYACCOUT,
-        payload: err.response.data,
+        payload: err.response?.data,
       });
-      dispatch(alertAction(err.response.data));
+      dispatch(alertAction(err.response?.data));
     });
 };
 

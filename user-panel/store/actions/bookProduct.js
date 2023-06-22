@@ -3,7 +3,7 @@ import axios from "../../utils/axios";
 import alertAction from "./alertAction";
 import enableBtn from "./enableBtnAction";
 
-export const bookProduct = (product) => (dispatch) => {
+export const bookProduct = (product, router) => (dispatch) => {
   dispatch(enableBtn(false));
   axios
     .post("/book/addbook", product)
@@ -14,6 +14,7 @@ export const bookProduct = (product) => (dispatch) => {
           bookProducts: response.data,
         },
       });
+      router.push("/book");
       dispatch(alertAction("Booked successfully!"));
       dispatch(enableBtn(true));
     })

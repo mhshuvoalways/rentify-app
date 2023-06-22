@@ -1,4 +1,5 @@
-const router = require("express").Router();
+const express = require("express");
+const router = express.Router();
 const {
   addProduct,
   editProduct,
@@ -7,6 +8,8 @@ const {
 } = require("../controllers/productController");
 const authenticate = require("../middlewares/authenticate");
 const fileUploader = require("../middlewares/fileUploader");
+
+router.use(express.json());
 
 router.post(
   "/addproduct",

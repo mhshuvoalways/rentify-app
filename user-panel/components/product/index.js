@@ -15,6 +15,7 @@ const Products = ({ products, router }) => {
                   title={product.title}
                   price={product.price}
                   description={product.description}
+                  category={product.category}
                   stock={
                     product.subProducts.filter(
                       (subPro) => subPro.availability === "Running"
@@ -30,6 +31,7 @@ const Products = ({ products, router }) => {
                 title={product.title}
                 price={product.price}
                 description={product.description}
+                category={product.category}
                 stock={
                   product.subProducts.filter(
                     (subPro) => subPro.availability === "Running"

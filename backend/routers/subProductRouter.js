@@ -1,4 +1,5 @@
-const router = require("express").Router();
+const express = require("express");
+const router = express.Router();
 const {
   addProduct,
   editProduct,
@@ -7,6 +8,8 @@ const {
   deleteProduct,
 } = require("../controllers/subProductController");
 const authenticate = require("../middlewares/authenticate");
+
+router.use(express.json());
 
 router.post("/addproduct", authenticate, addProduct);
 router.put("/editproduct/:id", authenticate, editProduct);

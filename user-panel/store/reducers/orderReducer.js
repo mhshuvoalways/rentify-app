@@ -8,7 +8,7 @@ const init = {
 
 const orderReducer = (state = init, action) => {
   switch (action.type) {
-    case Types.CREATE_ORDER: {
+    case Types.CASH_CREATE_ORDER: {
       const temp = [...state.orders];
       temp.push(action.payload.order);
       return {
@@ -17,13 +17,12 @@ const orderReducer = (state = init, action) => {
         error: null,
       };
     }
-    case Types.CREATE_ORDER_ERROR: {
+    case Types.CASH_CREATE_ORDER_ERROR: {
       return {
         ...state,
         error: action.payload.error,
       };
     }
-
     case Types.GET_ORDER: {
       return {
         ...state,

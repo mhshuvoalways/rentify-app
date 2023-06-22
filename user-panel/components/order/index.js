@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Address from "./Address";
 import Book from "./Book";
 import { useDispatch, useSelector } from "react-redux";
-import { createOrder } from "@/store/actions/orderAction";
+import { createOrder, cashInOrder } from "@/store/actions/orderAction";
 import {
   deleteBookProduct,
   updateBookProduct,
@@ -26,6 +26,7 @@ const Index = () => {
 
   const bookReducer = useSelector((store) => store.bookReducer);
   const userReducer = useSelector((store) => store.userReducer);
+  const btnReducer = useSelector((store) => store.btnReducer);
 
   const createOrderHandler = () => {
     const obj = {
@@ -35,6 +36,16 @@ const Index = () => {
     };
     dispatch(createOrder(obj, router));
   };
+
+  const cashOrderHandler = () => {
+    const obj = {
+      shippingAddress: address,
+      totalPrice: total,
+      products: allProducts,
+    };
+    dispatch(cashInOrder(obj, router));
+  };
+
 
   const onChangeHandler = (event) => {
     setAddress({
@@ -105,6 +116,8 @@ const Index = () => {
           decreaseHandler={decreaseHandler}
           deleteOrderProdcut={deleteOrderProdcut}
           userReducer={userReducer}
+          btnReducer={btnReducer}
+          cashOrderHandler={cashOrderHandler}
         />
       </div>
     </div>
