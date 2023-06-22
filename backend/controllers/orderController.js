@@ -58,6 +58,7 @@ const addOrder = async (req, res) => {
         }),
         customer: customer.id,
         mode: "payment",
+        payment_method_types: ['card'],
         success_url: `${process.env.FRONTEND_URL}/myaccount`,
         cancel_url: `${process.env.FRONTEND_URL}/book`,
       });
