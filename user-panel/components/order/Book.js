@@ -98,13 +98,11 @@ const Book = ({
           <>
             <button
               className="bg-gray-600 cursor-not-allowed opacity-50 text-white py-3 w-full mt-10 rounded-full"
-              onClick={createOrderHandler}
             >
               CONFIRM AND PAY
             </button>
             <button
               className="bg-gray-600 cursor-not-allowed opacity-50 text-white py-3 w-full mt-10 rounded-full"
-              onClick={createOrderHandler}
             >
               CASH
             </button>

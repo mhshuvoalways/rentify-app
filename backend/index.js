@@ -22,9 +22,9 @@ app.use("/user", userRouter);
 app.use("/category", categoryRouter);
 app.use("/product", productRouter);
 app.use("/subproduct", subProductRouter);
-app.use("/order", orderRouter);
+app.use("/order", cors(), orderRouter);
 app.use("/book", bookRouter);
-app.use("/stripe", stripeRouter);
+app.use("/stripe", cors(), stripeRouter);
 
 app.get("/", (req, res) => {
   res.send("This is a rent project");
