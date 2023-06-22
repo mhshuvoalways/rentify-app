@@ -20,9 +20,10 @@ const Customer = ({ user, lastAddress }) => {
       <div className="bg-white p-4 rounded mt-10">
         <p className="text-xl font-semibold">Payment Method</p>
         <div className="mt-3">
-          <p>Cash/VivaWallet Credit Card</p>
-          <p className="text-sm">Transaction No: #345451</p>
-          <p className="text-sm">Status Code: 334521</p>
+          <p>Method: {lastAddress?.paymentMethod.cash}</p>
+          <p className="text-sm">
+            Transaction No: #{lastAddress?.paymentMethod.tranId.substr(-5)}
+          </p>
         </div>
       </div>
     </div>
