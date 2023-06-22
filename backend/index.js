@@ -14,7 +14,6 @@ const bookRouter = require("./routers/bookRouter");
 const stripeRouter = require("./routers/stripeRouter");
 
 const app = express();
-app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 cloudinary();
