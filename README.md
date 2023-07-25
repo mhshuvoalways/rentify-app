@@ -3,6 +3,15 @@
 This is a simple MERN stack web application for renting various items such as cars, motorcycles, bikes, and rooms. Users can select available dates for renting items. If a date is unavailable, it will be marked in red. Users can make payments using Stripe or choose to pay in cash. Additionally, users can log in to view their order history. The application also includes an admin panel for managing categories, products, orders, and users.
 
 
+## Live Link
+User panel: https://rentify-app.netlify.app <br/>
+Admin panel: https://rentify-dashboard-app.netlify.app 
+
+Admin login credentials: <br/>
+email: admin@gmail.com <br/>
+password: admin123 <br/>
+
+
 ## Features
 
 ### User Features:
